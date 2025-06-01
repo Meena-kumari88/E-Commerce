@@ -1,7 +1,14 @@
+<script setup>
+import {ref} from 'vue'
+import products from '../data/products';
+
+const featuredProducts = ref(products.slice(0,4))
+
+</script>
 <template>
     <div>
           <!-- Hero Section -->
-            <section class="hero-section">
+    <section class="hero-section">
     <div class="hero-background">
       <img
         src="https://images.pexels.com/photos/5868722/pexels-photo-5868722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -22,7 +29,7 @@
   </section>
 
      <!-- Features Section -->
-       <section class="features-section">
+    <section class="features-section">
     <div class="features-container">
       <div class="feature-card slide-in">
         <div class="icon-wrapper">
@@ -144,7 +151,7 @@
 <script>
 export default {
   name: "FeaturedProducts",
-  props: {
+  props: {  
     featuredProducts: {
       type: Array,
       required: true,

@@ -1,21 +1,74 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-// Dummy components — create these or replace them with your own
-const Home = { template: '<div>Home</div>' }
-const About = { template: '<div>About Us</div>' }
-const Products = { template: '<div>Products</div>' }
-const Contact = { template: '<div>Contact Us</div>' }
+import Home  from '../components/Home.vue'
+import About  from '../components/About.vue'
+import Products  from '../components/Products.vue'
+import ProductDetail  from '../components/ProductDetail.vue'
+import Contact from '../components/Contact.vue'
 
-const routes = [
-  { path: '/', component: Home },
-  { path: '/about', component: About },
-  { path: '/products', component: Products },
-  { path: '/contact', component: Contact },
+
+
+const  routes = [
+  {
+    path:'/',
+    name:'home',
+    component:Home
+  },
+  {
+    path:'/about',
+    name:'about',
+    component:About
+  },
+  {
+    path:'/products',
+    name:'products',
+    component:Products
+  },
+  {
+    path:'/products/:id',
+    name:'product-details',
+    component:ProductDetail,
+    props:true
+  },
+  {
+    path:'/contact',
+    name:'contact',
+    component:Contact
+  }
 ]
 
+
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+  history:createWebHistory(),
+  routes:routes,
+
+  scrollBehavior:function(to, from, savedPosition){
+    if(savedPosition){
+      return savedPosition
+    }else{
+      return{top:0}
+    }
+  }
 })
 
 export default router
+
+// Dummy components — create these or replace them with your own
+// const Home = { template: '<div>Home</div>' }
+// const About = { template: '<div>About Us</div>' }
+// const Products = { template: '<div>Products</div>' }
+// const Contact = { template: '<div>Contact Us</div>' }
+
+// const routes = [
+//   { path: '/', component: Home },
+//   { path: '/about', component: About },
+//   { path: '/products', component: Products },
+//   { path: '/contact', component: Contact },
+// ]
+
+// const router = createRouter({
+//   history: createWebHistory(),
+//   routes,
+// })
+
+// export default router

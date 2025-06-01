@@ -5,12 +5,10 @@
         <h3>StyleHub</h3>
         <p>Elevating your style with premium quality fashion products since 2023.</p>
         <div class="social-icons">
-          <a href="#" aria-label="Facebook">
             <!-- Facebook Icon -->
             <a href="#" class="social-icon" aria-label="Facebook">
                  <i class="fab fa-facebook-f"></i>
             </a>
-          </a>
           <a href="#" class="social-icon" aria-label="Instagram">
              <i class="fab fa-instagram"></i>
           </a>
