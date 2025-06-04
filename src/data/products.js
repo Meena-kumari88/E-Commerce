@@ -3,7 +3,7 @@ const products = [
     id: 1,
     name: "Premium Cotton T-Shirt",
     category: "Men's Clothing",
-    price: 24.99,
+    price: 544.99,
     image: "https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     description: "A premium quality cotton t-shirt that offers both comfort and style. Perfect for everyday wear.",
     features: [
@@ -18,7 +18,7 @@ const products = [
     id: 2,
     name: "Slim Fit Jeans",
     category: "Men's Clothing",
-    price: 59.99,
+    price: 1500.99,
     image: "https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     description: "Modern slim fit jeans made with high-quality denim. Stylish and comfortable for all-day wear.",
     features: [
@@ -33,7 +33,7 @@ const products = [
     id: 3,
     name: "Floral Summer Dress",
     category: "Women's Clothing",
-    price: 49.99,
+    price: 949.99,
     image: "https://images.pexels.com/photos/7180790/pexels-photo-7180790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     description: "A beautiful floral pattern summer dress, perfect for warm weather and special occasions.",
     features: [
@@ -48,7 +48,7 @@ const products = [
     id: 4,
     name: "Leather Crossbody Bag",
     category: "Accessories",
-    price: 79.99,
+    price: 1279.99,
     image: "https://images.pexels.com/photos/5234152/pexels-photo-5234152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     description: "A stylish leather crossbody bag with multiple compartments, perfect for everyday use.",
     features: [
@@ -63,7 +63,7 @@ const products = [
     id: 5,
     name: "Classic Aviator Sunglasses",
     category: "Accessories",
-    price: 34.99,
+    price: 934.99,
     image: "https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     description: "Timeless aviator sunglasses with UV protection. A stylish accessory for any outfit.",
     features: [

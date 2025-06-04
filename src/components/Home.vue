@@ -18,7 +18,7 @@ const featuredProducts = ref(products.slice(0,4))
     </div>
     <div class="hero-content">
       <div class="text-content">
-        <h1>Elevate Your Style with StyleHub</h1>
+        <h1>Elevate Your Style with <br>StyleHub</h1>
         <p>Discover the latest fashion trends and premium quality products.</p>
         <div class="hero-buttons">
           <router-link to="/products" class="btn-primary">Shop Now</router-link>
@@ -102,7 +102,7 @@ const featuredProducts = ref(products.slice(0,4))
       <section class="about-section">
     <div class="container">
       <div class="content-wrapper">
-        <div class="text-content">
+        <div class="about-text-content">
           <h2>About StyleHub</h2>
           <p>
             Founded in 2023, StyleHub has quickly become a premier destination for fashion enthusiasts looking for quality apparel and accessories.
@@ -159,9 +159,9 @@ export default {
   },
   methods: {
     formatPrice(price) {
-      return new Intl.NumberFormat("en-US", {
+      return new Intl.NumberFormat("en-In", {
         style: "currency",
-        currency: "USD",
+        currency: "INR",
       }).format(price);
     },
   },
@@ -169,11 +169,18 @@ export default {
 </script>
 
 <style scoped>
+*{
+   font-family: sans-serif;
+}
+body{
+overflow-x: hidden;
+}
 .hero-section {
   position: relative;
   background-color: #1a202c;
   color: white;
   overflow: hidden;
+ 
 }
 
 .hero-background {
@@ -185,7 +192,6 @@ export default {
 
 .background-image {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   opacity: 0.4;
 }
@@ -195,21 +201,21 @@ export default {
   z-index: 2;
   padding: 6rem 1rem;
   text-align: left;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .text-content h1 {
-  font-size: 2.5rem;
+  font-size: 5.75rem;
   margin-bottom: 1rem;
   font-weight: bold;
   line-height: 1.2;
 }
 
 .text-content p {
-  font-size: 1.25rem;
+  font-size: 1.5rem !important;
   margin-bottom: 2rem;
-  color: #e2e8f0;
+  color: #E5E7EB;
 }
 
 .hero-buttons {
@@ -219,13 +225,14 @@ export default {
 }
 
 .btn-primary {
-  background-color: #1e90ff;
+  background-color: #2563EB;
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
   text-decoration: none;
   font-size: 1rem;
   border-radius: 5px;
+  font-family: sans-serif;
   transition: background-color 0.3s ease;
 }
 
@@ -241,6 +248,7 @@ export default {
   text-decoration: none;
   font-size: 1rem;
   border-radius: 5px;
+  font-family: sans-serif;
   transition: background-color 0.3s ease;
 }
 
@@ -248,7 +256,7 @@ export default {
   background-color: #f0f0f0;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1050px) {
   .text-content h1 {
     font-size: 3rem;
   }
@@ -327,7 +335,7 @@ export default {
 
 .feature-card p {
   font-size: 1rem;
-  color: #4b5563;
+  /* color: #4b5563; */
 }
 
 /* Animation */
@@ -370,8 +378,8 @@ export default {
 .heading p {
   max-width: 600px;
   margin: 0 auto;
-  color: #6b7280;
-  font-size: 1rem;
+  color: #4B5563;
+  font-size: 1.3rem;
 }
 
 .products-grid {
@@ -408,7 +416,7 @@ export default {
   background-color: #ffffff;
   border-radius: 10px;
   overflow: hidden;
-  height: 100%;
+  /* height: 100%; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -451,7 +459,7 @@ export default {
   text-decoration: none;
   border-radius: 5px;
   font-weight: 500;
-  transition: background-color 0.3s ease;
+  margin-top: 2.5rem;
 }
 
 .view-all-btn:hover {
@@ -478,7 +486,7 @@ export default {
 
 .content-wrapper {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   gap: 3rem;
   align-items: center;
 }
@@ -490,21 +498,22 @@ export default {
   }
 }
 
-.text-content {
+.about-text-content {
   flex: 1;
 }
 
-.text-content h2 {
+.about-text-content h2 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
 
-.text-content p {
-  color: #4b5563;
+.about-text-content p {
   margin-bottom: 1.5rem;
   line-height: 1.6;
   font-size: 1rem;
+   color: #4B5563;
+   font-family: sans-serif;
 }
 
 .learn-more-btn {
@@ -546,16 +555,19 @@ export default {
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2.4rem;
+  font-weight: bolder;
   margin-bottom: 1rem;
+  color: #1F2937;
+  font-family: sans-serif;
 }
+
 
 .description {
   max-width: 600px;
   margin: 0 auto 2rem auto;
   color: #4b5563;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
 }
 
@@ -566,7 +578,6 @@ export default {
 
 .contact-button {
   display: block;
-  width: 100%;
   background-color: #2563eb;
   color: #ffffff;
   padding: 0.75rem 1.5rem;
