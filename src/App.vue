@@ -9,9 +9,7 @@ import Footer from './components/Footer.vue'
   <Navbar/>
   <main class="main-content">
     <router-view v-slot="{Component}">
-       <transition name="fade" mode="out-in">
-          <component :is="Component" />
-        </transition>
+          <component :is="Component" />    
     </router-view>
   </main>
   <Footer/>
