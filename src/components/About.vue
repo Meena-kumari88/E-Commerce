@@ -1,16 +1,16 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="about-hero-section">
       <div class="hero-background">
         <img 
           src="https://images.pexels.com/photos/4132651/pexels-photo-4132651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
           alt="About Us" 
         />
       </div>
-      <div class="hero-content">
+      <div class="about-hero-content">
         <h1>About StyleHub</h1>
-        <p>Learn about our story, mission, and the team behind StyleHub.</p>
+        <p>Learn about our story, mission behind StyleHub.</p>
       </div>
     </section>
 
@@ -48,19 +48,19 @@
 
           <div class="mission-cards">
             <div class="card">
-              <div class="icon">🚀</div>
+              <div class="icon"><i class="fas fa-gem"></i></div>
               <h3 class="card-title">Quality</h3>
               <p class="card-text">We source the finest materials and partner with ethical manufacturers to create products that last.</p>
             </div>
 
             <div class="card">
-              <div class="icon">🌍</div>
+              <div class="icon"><i class="fas fa-universal-access"></i></div>
               <h3 class="card-title">Accessibility</h3>
               <p class="card-text">We believe that great fashion should be accessible to everyone, regardless of budget.</p>
             </div>
 
             <div class="card">
-              <div class="icon">♻️</div>
+              <div class="icon"><i class="fas fa-leaf"></i></div>
               <h3 class="card-title">Sustainability</h3>
               <p class="card-text">We're committed to reducing our environmental impact through responsible practices.</p>
             </div>
@@ -86,10 +86,13 @@
 </template>
 
 <style>
+*{
+  font-family: sans-serif;
+}
 /* Hero Section */
-.hero-section {
+.about-hero-section {
   position: relative;
-  background-color: #2c3e50;
+  background-color: #2563eb;
   color: white;
   padding: 100px 20px;
   text-align: center;
@@ -107,20 +110,21 @@
   z-index: 0;
 }
 
-.hero-content {
+.about-hero-content {
   position: relative;
   z-index: 1;
   max-width: 800px;
-  margin: 0 auto;
+  text-align: left;
+ 
 }
 
-.hero-content h1 {
-  font-size: 36px;
+.about-hero-content h1 {
+  font-size: 3rem;
   margin-bottom: 20px;
 }
 
-.hero-content p {
-  font-size: 20px;
+.about-hero-content p {
+  font-size: 1.25rem;
 }
 
 /* Our Story Section */
@@ -131,7 +135,7 @@
 
 .our-story-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
@@ -178,7 +182,7 @@
 
 .section-description {
   font-size: 1.1rem;
-  color: #555;
+  color: #ffffff;
   margin-bottom: 2rem;
 }
 
@@ -197,6 +201,7 @@
   max-width: 300px;
   flex: 1;
   text-align: left;
+  margin-bottom: 2rem;
 }
 
 .icon {
@@ -216,7 +221,7 @@
 }
 
 .cta-section {
-  background-color: #2a4365;
+  background-color: #2563eb;
   color: white;
   padding: 60px 20px;
 }
@@ -257,4 +262,5 @@
   background-color: white;
   color: #2a4365;
 }
+
 </style>
