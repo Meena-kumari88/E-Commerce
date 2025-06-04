@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="contact-hero-section">
       <div class="hero-background">
         <img 
           src="https://images.pexels.com/photos/1416530/pexels-photo-1416530.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
@@ -9,7 +9,7 @@
           class="hero-image"
         />
       </div>
-      <div class="hero-content">
+      <div class="contact-hero-content">
         <h1>Contact Us</h1>
         <p>We'd love to hear from you! Reach out with any questions, feedback, or inquiries.</p>
       </div>
@@ -30,26 +30,22 @@
             <form @submit.prevent="handleSubmit">
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" v-model="formData.name" :class="{ 'error-border': errors.name }" />
-                <p v-if="errors.name" class="error-text">{{ errors.name }}</p>
+                <input type="text" id="name" v-model="formData.name" required />
               </div>
 
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" v-model="formData.email" :class="{ 'error-border': errors.email }" />
-                <p v-if="errors.email" class="error-text">{{ errors.email }}</p>
+                <input type="email" id="email" v-model="formData.email" required />
               </div>
 
               <div class="form-group">
                 <label for="subject">Subject</label>
-                <input type="text" id="subject" v-model="formData.subject" :class="{ 'error-border': errors.subject }" />
-                <p v-if="errors.subject" class="error-text">{{ errors.subject }}</p>
+                <input type="text" id="subject" v-model="formData.subject" required/>
               </div>
 
               <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" v-model="formData.message" rows="5" :class="{ 'error-border': errors.message }"></textarea>
-                <p v-if="errors.message" class="error-text">{{ errors.message }}</p>
+                <textarea id="message" v-model="formData.message" rows="5"  required></textarea>
               </div>
 
               <button type="submit" class="submit-button">Send Message</button>
@@ -61,27 +57,20 @@
             <h2>Contact Information</h2>
 
             <div class="info-item">
-              <strong>Our Address:</strong>
+              <strong><i class="fas fa-map-marker-alt"></i>Our Address:</strong>
               <p>123 Fashion Street, Style City, SC 12345</p>
             </div>
 
             <div class="info-item">
-              <strong>Email Us:</strong>
+              <strong> <i class="fas fa-envelope"></i>Email Us:</strong>
               <p>info@stylehub.com</p>
               <p>support@stylehub.com</p>
             </div>
 
             <div class="info-item">
-              <strong>Call Us:</strong>
+              <strong><i class="fas fa-phone-alt"></i>Call Us:</strong>
               <p>+1 (555) 123-4567</p>
               <p>+1 (555) 987-6543</p>
-            </div>
-
-            <div class="info-item">
-              <strong>Business Hours:</strong>
-              <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-              <p>Saturday: 10:00 AM - 4:00 PM</p>
-              <p>Sunday: Closed</p>
             </div>
           </div>
         </div>
@@ -93,7 +82,7 @@
       <div class="map-container">
         <h2>Find Us</h2>
         <div class="map-placeholder">
-          <p>Map Placeholder - In a real app, a Google Map would be displayed here</p>
+           <p>Map Placeholder - In a real app, a Google Map would be displayed here</p>
         </div>
       </div>
     </section>
@@ -111,11 +100,6 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.errors = {};
-      if (!this.formData.name) this.errors.name = 'Name is required';
-      if (!this.formData.email) this.errors.email = 'Email is required';
-      if (!this.formData.subject) this.errors.subject = 'Subject is required';
-      if (!this.formData.message) this.errors.message = 'Message is required';
 
       if (Object.keys(this.errors).length === 0) {
         this.isSubmitted = true;
@@ -127,12 +111,16 @@ export default {
 </script>
 
 <style>
-.hero-section {
+*{
+  font-family: sans-serif;
+}
+.contact-hero-section {
   position: relative;
   color: white;
   padding: 100px 20px;
-  text-align: center;
-  background-color: #2b6cb0;
+  text-align: left;
+  background-color: #D97706
+;
 }
 .hero-background {
   position: absolute;
@@ -145,11 +133,17 @@ export default {
   object-fit: cover;
   opacity: 0.2;
 }
-.hero-content {
+.contact-hero-content {
   position: relative;
   z-index: 10;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 4rem;
+}
+.contact-hero-content h1{
+  font-size: 3rem;
+}
+.contact-hero-content p{
+  font-size: 1.3rem;
 }
 
 .contact-section {
@@ -163,12 +157,34 @@ export default {
 .form-info-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 4rem;
 }
 .form-box, .info-box {
   flex: 1;
   min-width: 300px;
 }
+.info-box{
+  background-color: #F9FAFB;
+  padding: 0 2rem;
+  border-radius: 12px;
+}
+.info-item i {
+  background-color: #DBEAFE; 
+  color: #2563eb;
+  border-radius: 50%;        
+  padding: 8px;              
+  margin-right: 8px;         
+  font-size: 1.3rem;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.info-item p{
+  margin-left: 3.4rem;
+}
+
 .form-box h2, .info-box h2 {
   margin-bottom: 20px;
 }
@@ -186,7 +202,6 @@ export default {
 label {
   display: block;
   margin-bottom: 5px;
-  font-weight: bold;
 }
 input, textarea {
   width: 100%;
@@ -194,16 +209,10 @@ input, textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.error-text {
-  color: red;
-  font-size: 0.875em;
-}
-.error-border {
-  border-color: red;
-}
+
 .submit-button {
   padding: 10px 20px;
-  background-color: #2b6cb0;
+  background-color: #2563eb;
   color: white;
   border: none;
   border-radius: 5px;
@@ -232,5 +241,16 @@ input, textarea {
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+}
+@media(max-width:768px){
+  .contact-hero-content {
+    margin: 0 auto;
+}
+.contact-hero-content h1{
+  font-size: 2rem;
+}
+.contact-hero-content p{
+  font-size: 1rem;
+}
 }
 </style>
