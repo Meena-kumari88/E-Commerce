@@ -5,4 +5,5 @@ html, body, #app {
   box-sizing: border-box;
   width: 100%;
   overflow-x: hidden;
+  font-family: sans-serif;
 }

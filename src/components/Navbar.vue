@@ -92,7 +92,7 @@ export default {
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 4rem;
 }
 
 .nav-item {

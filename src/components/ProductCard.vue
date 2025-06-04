@@ -1,24 +1,9 @@
-<script setup>
-import { computed } from 'vue';
 
-const props = defineProps({
-  product: {
-    type: Object,
-    required: true
-  }
-})
-
-const formattedPrice = computed(() => {
-  return new Intl.NumberFormat('en-In', {
-    style: "currency",
-    currency: "INR",
-  }).format(props.product.price);
-});
-</script>
 
 
 <template>
-  <div class="product-card">
+  <div>
+     <div class="product-card">
     <div class="image-wrapper">
       <img
         :src="product.image"
@@ -41,7 +26,27 @@ const formattedPrice = computed(() => {
       </div>
     </div>
   </div>
+
+  </div>
 </template>
+
+<script setup>
+import { computed } from 'vue';
+
+const props = defineProps({
+  product: {
+    type: Object,
+    required: true
+  }
+})
+
+const formattedPrice = computed(() => {
+  return new Intl.NumberFormat('en-In', {
+    style: "currency",
+    currency: "INR",
+  }).format(props.product.price);
+});
+</script>
 
 
 <style scoped>
@@ -54,7 +59,7 @@ const formattedPrice = computed(() => {
   background-color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: auto;
+  height: 100%;
   
 }
 
@@ -120,7 +125,6 @@ const formattedPrice = computed(() => {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* max 2 lines */
   -webkit-box-orient: vertical;
 }
 

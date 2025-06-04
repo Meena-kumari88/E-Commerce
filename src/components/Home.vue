@@ -1,10 +1,4 @@
-<script setup>
-import {ref} from 'vue'
-import products from '../data/products';
 
-const featuredProducts = ref(products.slice(0,4))
-
-</script>
 <template>
     <div>
           <!-- Hero Section -->
@@ -148,25 +142,22 @@ const featuredProducts = ref(products.slice(0,4))
     </div>
 </template>
 
-<script>
-export default {
-  name: "FeaturedProducts",
-  props: {  
-    featuredProducts: {
-      type: Array,
-      required: true,
-    },
-  },
-  methods: {
-    formatPrice(price) {
-      return new Intl.NumberFormat("en-In", {
-        style: "currency",
-        currency: "INR",
-      }).format(price);
-    },
-  },
-};
+<script setup>
+import { ref } from 'vue'
+import products from '../data/products'
+
+// Use local products data (optional, if not passed as a prop)
+const featuredProducts = ref(products.slice(0, 4))
+
+
+function formatPrice(price) {
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR"
+  }).format(price)
+}
 </script>
+
 
 <style scoped>
 *{
@@ -180,7 +171,7 @@ overflow-x: hidden;
   background-color: #1a202c;
   color: white;
   overflow: hidden;
- 
+ height: 100vh;
 }
 
 .hero-background {
@@ -194,6 +185,7 @@ overflow-x: hidden;
   width: 100%;
   object-fit: cover;
   opacity: 0.4;
+
 }
 
 .hero-content {

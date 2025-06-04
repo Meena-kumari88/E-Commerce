@@ -1,51 +1,7 @@
-<script setup>
-import {ref, computed} from 'vue'
-import products from '../data/products'
-import ProductCard from './ProductCard.vue';
 
-// Filters
-const searchQuery = ref('');
-const selectedCategory = ref('');
-const sortOption = ref('default')
-
-// Unique categories
-
-const categories = computed(() =>{
-    const unique = new Set()
-    products.forEach(p => unique.add(p.category));
-    return Array.from(unique)
-})
-
-
-// Filter and sort logic
-const filteredProducts = computed(() =>{
-    let result = [...products]
-
-    if(searchQuery.value){
-        const query = searchQuery.value.toLocaleLowerCase()
-        result = result.filter(p=>
-            p.name.toLocaleLowerCase().includes(query) || 
-            p.description.toLocaleLowerCase().includes(query)
-        )
-    }
-    if(selectedCategory.value){
-        result = result.filter(p=>p.category === selectedCategory.value)
-    }
-    if(sortOption.value === 'price-low-high'){
-        result.sort((a,b) => a.price -b.price)
-    }else if(sortOption.value ==="price-high-low"){
-        result.sort((a,b) => b.price - a.price)
-    }else if(sortOption.value === 'name-a-z'){
-        result.sort((a,b) => a.name.localeCompare(b.name))
-    }else if(sortOption.value === 'name-z-a'){
-        result.sort((a,b) => b.name.localeCompare(a.name))
-    }
-    return result
-})
-
-</script>
 <template>
-        <section class="product-hero">
+  <div>
+     <section class="product-hero">
              <img 
               src="https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
               alt="Banner"
@@ -98,9 +54,56 @@ const filteredProducts = computed(() =>{
                 </button>
             </div>
 
-         </section>    
-    
+         </section>   
+  </div>
 </template>
+
+<script setup>
+import {ref, computed} from 'vue'
+import products from '../data/products'
+import ProductCard from './ProductCard.vue';
+
+// Filters
+const searchQuery = ref('');
+const selectedCategory = ref('');
+const sortOption = ref('default')
+
+// Unique categories
+
+const categories = computed(() =>{
+    const unique = new Set()
+    products.forEach(p => unique.add(p.category));
+    return Array.from(unique)
+})
+
+
+// Filter and sort logic
+const filteredProducts = computed(() =>{
+    let result = [...products]
+
+    if(searchQuery.value){
+        const query = searchQuery.value.toLocaleLowerCase()
+        result = result.filter(p=>
+            p.name.toLocaleLowerCase().includes(query) || 
+            p.description.toLocaleLowerCase().includes(query)
+        )
+    }
+    if(selectedCategory.value){
+        result = result.filter(p=>p.category === selectedCategory.value)
+    }
+    if(sortOption.value === 'price-low-high'){
+        result.sort((a,b) => a.price -b.price)
+    }else if(sortOption.value ==="price-high-low"){
+        result.sort((a,b) => b.price - a.price)
+    }else if(sortOption.value === 'name-a-z'){
+        result.sort((a,b) => a.name.localeCompare(b.name))
+    }else if(sortOption.value === 'name-z-a'){
+        result.sort((a,b) => b.name.localeCompare(a.name))
+    }
+    return result
+})
+
+</script>
 
 <style scoped>
 .product-page {
@@ -111,31 +114,31 @@ const filteredProducts = computed(() =>{
   position: relative;
   text-align: left;
   color: white;
-  background-color: #000000
+  background-color: #000000;
 }
 
 .product-hero img {
   width: 100%;
-  height: 300px;
+  height: 350px;
   object-fit: cover;
   opacity: 0.4;
 }
 
 .product-hero-content {
   position: absolute;
-  top: 30%;
+  top: 36%;
   left: 40%;
   transform: translate(-50%, -30%);
   color: #fff;
 }
 
 .product-hero-content h1 {
-  font-size: 36px;
+  font-size: 3rem;
   margin-bottom: 10px;
 }
 
 .product-hero-content p {
-  font-size: 18px;
+  font-size: 1.25rem;
 }
 
 .filters {
@@ -193,5 +196,13 @@ const filteredProducts = computed(() =>{
 
 .no-results button:hover {
   background-color: #444;
+}
+@media(max-width:868px){
+  .product-hero-content h1 {
+    font-size: 2rem;
+  }
+  .product-hero-content p{
+    font-family: 1rem;
+  }
 }
 </style>

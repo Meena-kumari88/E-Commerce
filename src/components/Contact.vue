@@ -119,7 +119,7 @@ export default {
   color: white;
   padding: 100px 20px;
   text-align: left;
-  background-color: #D97706;
+  background-color: #000000;;
 }
 .hero-background {
   position: absolute;
@@ -137,6 +137,7 @@ export default {
   z-index: 10;
   max-width: 800px;
   margin: 0 4rem;
+  left: 14%;
 }
 .contact-hero-content h1{
   font-size: 3rem;
@@ -148,6 +149,7 @@ export default {
 .contact-section {
   padding: 60px 20px;
   background: white;
+  margin-right: 1rem;
 }
 .contact-container {
   max-width: 1200px;
@@ -244,6 +246,7 @@ input, textarea {
 @media(max-width:768px){
   .contact-hero-content {
     margin: 0 auto;
+    left: 0%;
 }
 .contact-hero-content h1{
   font-size: 2rem;

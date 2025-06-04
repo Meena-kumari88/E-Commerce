@@ -1,50 +1,4 @@
-<script >
-import {ref, computed, onMounted} from 'vue'
-import {useRoute, useRouter} from 'vue-router'
-import products from '../data/products'
 
-export default {
-    setup(){
-        const route= useRoute()
-        const router = useRouter()
-        const quantity = ref(1)
-        const GST_RATE  = 0.18
-
-        const product = computed(() =>{
-            const id = Number(route.params.id)
-            const found = products.find(p=> p.id === id)
-            if(!found) router.push('/products')
-            return found
-        })
-
-        const subtotal = computed(()=>(product.value ? product.value.price * quantity.value: 0))
-        const gstAmount = computed(()=>subtotal.value * GST_RATE)
-        const totalAmount = computed(() =>subtotal.value + gstAmount.value)
-
-        const formatPrice = price =>`$${price.toFixed(2)}`
-
-        const updateQuantity= change =>{
-            const newQty = quantity.value + change
-            if(newQty >= 1) quantity.value = newQty
-        }
-
-        onMounted(()=>window.scrollTo(0,0))
-
-        return{
-             route,
-             router,
-             quantity,
-             product,
-             subtotal,
-             gstAmount,
-             totalAmount,
-             formatPrice,
-             updateQuantity,
-             products
-        }
-    }
-}
-</script>
 <template>
     <div v-if="product" >
         <section class="productdetail-section">
@@ -53,7 +7,7 @@ export default {
                     <router-link to="/products">Back to Products</router-link>
                 </div>
 
-                <div class="product-grid">
+                <div class="productdetail-grid">
                     <div class="product-image">
                         <img :src="product.image" :alt="product.name"/>
                     </div>
@@ -77,14 +31,13 @@ export default {
                             </ul>
                         </div>
 
-
                         <div>
                             <h2>Quantity</h2>
                             <div class="productdetail-quantity-control">
-  <button @click="updateQuantity(-1)">-</button>
-  <input type="number" v-model="quantity" min="1" />
-  <button @click="updateQuantity(1)">+</button>
-</div>
+                            <button @click="updateQuantity(-1)">-</button>
+                            <input type="number" v-model="quantity" min="1" />
+                            <button @click="updateQuantity(1)">+</button>
+                          </div>
 
                         </div>
 
@@ -132,10 +85,56 @@ export default {
     </div>
 </template>
 
+<script >
+import {ref, computed, onMounted} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
+import products from '../data/products'
 
+export default {
+    setup(){
+        const route= useRoute()
+        const router = useRouter()
+        const quantity = ref(1)
+        const GST_RATE  = 0.18
+
+        const product = computed(() =>{
+            const id = Number(route.params.id)
+            const found = products.find(p=> p.id === id)
+            if(!found) router.push('/products')
+            return found
+        })
+
+        const subtotal = computed(()=>(product.value ? product.value.price * quantity.value: 0))
+        const gstAmount = computed(()=>subtotal.value * GST_RATE)
+        const totalAmount = computed(() =>subtotal.value + gstAmount.value)
+
+        const formatPrice = price =>`₹${price.toFixed(2)}`
+
+        const updateQuantity= change =>{
+            const newQty = quantity.value + change
+            if(newQty >= 1) quantity.value = newQty
+        }
+
+        onMounted(()=>window.scrollTo(0,0))
+
+        return{
+             route,
+             router,
+             quantity,
+             product,
+             subtotal,
+             gstAmount,
+             totalAmount,
+             formatPrice,
+             updateQuantity,
+             products
+        }
+    }
+}
+</script>
 
 <style>
-/* Container & Sections */
+
 .productdetail-container {
   max-width: 1200px;
   margin: auto;
@@ -147,7 +146,7 @@ export default {
   padding: 40px 0 20px;
 }
 
-/* Back Link */
+
 .back-link {
   margin-bottom: 20px;
 }
@@ -162,8 +161,8 @@ export default {
   text-decoration: underline;
 }
 
-/* Product Grid */
-.product-grid {
+
+.productdetail-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
@@ -173,7 +172,7 @@ export default {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
-/* Product Image */
+
 .product-image {
   flex: 1 1 45%;
   display: flex;
@@ -188,7 +187,7 @@ export default {
   object-fit: cover;
 }
 
-/* Product Info */
+
 .product-info {
   flex: 1 1 50%;
   display: flex;
@@ -196,7 +195,7 @@ export default {
   gap: 16px;
 }
 
-/* Category Label */
+
 .category {
   display: inline-block;
   background-color: #dee2e6;
@@ -208,7 +207,7 @@ export default {
   margin-bottom: 6px;
 }
 
-/* Product Name and Price */
+
 .product-info h1 {
   font-size: 1.75rem;
   color: #212529;
@@ -222,7 +221,7 @@ export default {
   margin-bottom: 10px;
 }
 
-/* Headings & Paragraphs */
+
 .product-info h2 {
   font-size: 1rem;
   margin: 10px 0 5px;
@@ -298,7 +297,7 @@ ul li {
   }
 }
 
-/* Order Summary */
+
 .order-summary {
   background-color: #f8f9fa;
   padding: 1rem;
@@ -319,7 +318,7 @@ ul li {
   font-size: 1.05rem;
 }
 
-/* Add to Cart Button */
+
 .add-to-cart {
   background-color: #0d6efd;
   color: white;
@@ -337,7 +336,7 @@ ul li {
   background-color: #0b5ed7;
 }
 
-/* Related Section */
+
 .related-section h2 {
   font-size: 1.25rem;
   font-weight: 600;
@@ -345,7 +344,7 @@ ul li {
   color: #212529;
 }
 
-/* Related Grid */
+
 .related-grid {
   display: flex;
   flex-wrap: wrap;
@@ -389,9 +388,9 @@ ul li {
   margin: 0;
 }
 
-/* Responsive */
+
 @media (max-width: 1024px) {
-  .product-grid {
+  .productdetail-grid {
     flex-direction: column;
   }
 

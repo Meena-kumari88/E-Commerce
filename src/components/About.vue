@@ -89,10 +89,9 @@
 *{
   font-family: sans-serif;
 }
-/* Hero Section */
 .about-hero-section {
   position: relative;
-  background-color: #D97706;
+  background-color: #000000;
   color: white;
   padding: 100px 20px;
   text-align: center;
@@ -115,19 +114,21 @@
   z-index: 1;
   max-width: 800px;
   text-align: left;
+  left: 16%;
  
 }
 
 .about-hero-content h1 {
   font-size: 3rem;
   margin-bottom: 20px;
+  
 }
 
 .about-hero-content p {
   font-size: 1.25rem;
 }
 
-/* Our Story Section */
+
 .our-story {
   padding: 80px 20px;
   background-color: white;
@@ -261,6 +262,20 @@
 .btn.outline:hover {
   background-color: white;
   color: #2a4365;
+}
+@media(max-width:600px){
+  .about-hero-content {
+  left: 4%;
+ 
+}
+.about-hero-content h1 {
+    font-size: 2rem;
+}
+.about-hero-content p {
+    font-size: 1rem;
+}
+
+
 }
 
 </style>
