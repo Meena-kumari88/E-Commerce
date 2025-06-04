@@ -20,25 +20,18 @@ import Footer from './components/Footer.vue'
 
 <style>
 .app-container {
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  width: 100%;        
+  overflow-x: hidden; 
 }
 
-/* Main content should grow */
 .main-content {
   flex-grow: 1;
+  width: 100%;         
 }
 
-/* Fade transition */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.4s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 </style>
 

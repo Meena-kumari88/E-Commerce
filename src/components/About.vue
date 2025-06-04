@@ -92,7 +92,7 @@
 /* Hero Section */
 .about-hero-section {
   position: relative;
-  background-color: #2563eb;
+  background-color: #D97706;
   color: white;
   padding: 100px 20px;
   text-align: center;

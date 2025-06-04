@@ -9,16 +9,16 @@ const props = defineProps({
 })
 
 const formattedPrice = computed(() => {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD'
+  return new Intl.NumberFormat('en-In', {
+    style: "currency",
+    currency: "INR",
   }).format(props.product.price);
 });
 </script>
 
 
 <template>
-  <div class="card">
+  <div class="product-card">
     <div class="image-wrapper">
       <img
         :src="product.image"
@@ -45,24 +45,29 @@ const formattedPrice = computed(() => {
 
 
 <style scoped>
-.card {
+.product-card {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: auto;
+  
 }
 
-.card:hover .product-image {
-  transform: scale(1.05);
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
+
 
 .image-wrapper {
   position: relative;
-  overflow: hidden;
   height: 250px;
+  overflow: hidden;
 }
 
 .product-image {
@@ -71,14 +76,17 @@ const formattedPrice = computed(() => {
   object-fit: cover;
   transition: transform 0.3s ease;
 }
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
 
 .category-badge {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
-  padding: 10px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border-top-right-radius: 8px;
 }
 
 .category-badge span {
@@ -86,7 +94,8 @@ const formattedPrice = computed(() => {
   color: white;
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .card-content {
@@ -98,20 +107,20 @@ const formattedPrice = computed(() => {
 
 .product-name {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 600;
   color: #333;
   margin-bottom: 8px;
 }
 
 .product-description {
-  flex-grow: 1;
-  color: #666;
   font-size: 14px;
+  color: #666;
+  flex-grow: 1;
   margin-bottom: 12px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; 
+  -webkit-line-clamp: 2; /* max 2 lines */
   -webkit-box-orient: vertical;
 }
 
@@ -122,7 +131,7 @@ const formattedPrice = computed(() => {
 }
 
 .price {
-  font-weight: bold;
+  font-weight: 700;
   color: #007bff;
   font-size: 16px;
 }
@@ -134,7 +143,7 @@ const formattedPrice = computed(() => {
   text-decoration: none;
   border-radius: 4px;
   font-size: 14px;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .view-button:hover {

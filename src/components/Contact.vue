@@ -119,8 +119,7 @@ export default {
   color: white;
   padding: 100px 20px;
   text-align: left;
-  background-color: #D97706
-;
+  background-color: #D97706;
 }
 .hero-background {
   position: absolute;

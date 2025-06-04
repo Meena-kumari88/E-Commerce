@@ -63,9 +63,7 @@
   </footer>
 </template>
 
-<script setup lang="ts">
-// No logic needed
-</script>
+
 
 <style>
 .footer {

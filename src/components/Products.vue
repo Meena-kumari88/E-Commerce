@@ -45,7 +45,6 @@ const filteredProducts = computed(() =>{
 
 </script>
 <template>
-    <div class="product-home">
         <section class="product-hero">
              <img 
               src="https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
@@ -100,7 +99,7 @@ const filteredProducts = computed(() =>{
             </div>
 
          </section>    
-    </div>
+    
 </template>
 
 <style scoped>
@@ -110,8 +109,9 @@ const filteredProducts = computed(() =>{
 
 .product-hero {
   position: relative;
-  text-align: center;
+  text-align: left;
   color: white;
+  background-color: #000000
 }
 
 .product-hero img {
@@ -124,7 +124,7 @@ const filteredProducts = computed(() =>{
 .product-hero-content {
   position: absolute;
   top: 30%;
-  left: 50%;
+  left: 40%;
   transform: translate(-50%, -30%);
   color: #fff;
 }
