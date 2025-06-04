@@ -2,18 +2,15 @@
 <template>
    <nav class="navbar">
     <div class="nav-container">
-      <a href="/" class="logo">
-        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path d="M3 3h18v18H3V3z" stroke-width="2" />
-        </svg>
+      <router-link to="/" class="logo">
         <span>StyleHub</span>
-      </a>
+      </router-link>
 
       <div class="nav-links" >
-        <a href="/" class="nav-item" :class="{active:activePage === 'home'}">Home</a>
-        <a href="/about" class="nav-item" :class="{active:activePage === 'about'}">About Us</a>
-        <a href="/products" class="nav-item" :class="{active:activePage === 'products'}">Products</a>
-        <a href="/contact" class="nav-item" :class="{active:activePage === 'contact'}">Contact Us</a>
+        <router-link to="/" class="nav-item" :class="{active: $route.path === '/'}">Home</router-link>
+        <router-link to="/about" class="nav-item" :class="{active: $route.path === '/about'}">About Us</router-link>
+        <router-link to="/products" class="nav-item" :class="{active: $route.path === '/products'}">Products</router-link>
+        <router-link to="/contact" class="nav-item" :class="{active: $route.path === '/contact'}">Contact Us</router-link>
       </div>
 
       <button class="mobile-btn" @click="toggleMenu">
@@ -27,10 +24,10 @@
     </div>
 
     <div v-if="isOpen" class="mobile-menu" >
-      <a href="/" class="mobile-link active" :class="{active:activePage === 'home'}" @click="setActive('home')">Home</a>
-      <a href="/about" class="mobile-link"  :class="{active:activePage === 'about'}" @click="setActive('about')">About Us</a>
-      <a href="/products" class="mobile-link" :class="{active:activePage === 'products'}" @click="setActive('products')">Products</a>
-      <a href="/contact" class="mobile-link" :class="{active:activePage === 'contact'}" @click="setActive('contact')">Contact Us</a>
+      <router-link to="/" class="mobile-link " :class="{active: $route.path === '/'}" @click="setActive('home')">Home</router-link>
+      <router-link to="/about" class="mobile-link"  :class="{active: $route.path === '/about'}" @click="setActive('about')">About Us</router-link>
+      <router-link to="/products" class="mobile-link" :class="{active: $route.path === '/products'}" @click="setActive('products')">Products</router-link>
+      <router-link to="/contact" class="mobile-link" :class="{active: $route.path === '/contact'}" @click="setActive('contact')">Contact Us</router-link>
     </div>
   </nav>
 
@@ -42,18 +39,13 @@ export default {
     data(){
         return{
             isOpen:false,
-            activePage:'home'
         }
     },
     methods:{
         toggleMenu(){
             this.isOpen = !this.isOpen;
         },
-        setActive(page){
-            this.activePage = page;
-            this.isOpen = false
-        }
-    }
+            }
 }
 </script>
 
@@ -66,7 +58,6 @@ export default {
 .navbar {
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(4px);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 999;
@@ -87,16 +78,16 @@ export default {
   align-items: center;
   gap: 8px;
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: bold;
-  color: #3b2f2f;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: #1D4ED8;
   text-decoration: none;
 }
 
 .icon {
   width: 28px;
   height: 28px;
-  color: #8b5e3c; 
+  color: #1D4ED8; 
 }
 
 .nav-links {
@@ -106,15 +97,17 @@ export default {
 
 .nav-item {
   position: relative;
-  color: #8b5e3c;
+  font-weight: bolder;
+  color: #374151;
   text-decoration: none;
-  font-weight: 500;
   transition: color 0.3s ease;
+  font-size: 1rem;
+
 }
 
 .nav-item:hover,
 .nav-item.active {
-  color: #6b4226; 
+  color:#1D4ED8; 
 }
 
 .nav-item.active::after {
@@ -124,7 +117,7 @@ export default {
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #8b5e3c;
+  background-color: #1D4ED8;
   border-radius: 9999px;
 }
 
@@ -145,7 +138,7 @@ export default {
 
 .mobile-link {
   padding: 10px 0;
-  color: #8b5e3c;
+  color: #374151;
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
@@ -155,7 +148,7 @@ export default {
 .mobile-link:hover,
 .mobile-link.active {
   background-color: #fdf6f1;
-  color: #6b4226;
+  color: #1D4ED8;
 }
 
 .hidden {
